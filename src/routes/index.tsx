@@ -100,7 +100,7 @@ function Home() {
           <div className="grid gap-3 sm:grid-cols-2">
             {["Serial Number Ledger", "AMC & Service Desk", "Calibration Compliance", "GST B2B Billing"].map((t, i) => (
               <div key={t} className="card-surface flex items-center gap-3 p-4">
-                <IconTile icon={["⌗", "⚙", "◎", "₹"][i]} tone={i % 2 ? "teal" : "blue"} />
+                <IconTile icon={["⌗", "⚙", "◎", "₹"][i] ?? "◈"} tone={i % 2 ? "teal" : "blue"} />
                 <span className="text-sm font-semibold text-navy">{t}</span>
               </div>
             ))}
