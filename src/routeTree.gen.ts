@@ -16,8 +16,12 @@ import { Route as EquipmentRouteImport } from './routes/equipment'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SoftwareDemoRouteImport } from './routes/software-demo'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as AdminCustomersRouteImport } from './routes/admin.customers'
 import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
+import { Route as AdminInventoryRouteImport } from './routes/admin.inventory'
+import { Route as AdminInvoicesRouteImport } from './routes/admin.invoices'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminQuotationsRouteImport } from './routes/admin.quotations'
 import { Route as AdminSalesRouteImport } from './routes/admin.sales'
 
 const IndexRoute = IndexRouteImport.update({
@@ -55,14 +59,34 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminCustomersRoute = AdminCustomersRouteImport.update({
+  id: '/admin/customers',
+  path: '/admin/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminDashboardRoute = AdminDashboardRouteImport.update({
   id: '/admin/dashboard',
   path: '/admin/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminInventoryRoute = AdminInventoryRouteImport.update({
+  id: '/admin/inventory',
+  path: '/admin/inventory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminInvoicesRoute = AdminInvoicesRouteImport.update({
+  id: '/admin/invoices',
+  path: '/admin/invoices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminQuotationsRoute = AdminQuotationsRouteImport.update({
+  id: '/admin/quotations',
+  path: '/admin/quotations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminSalesRoute = AdminSalesRouteImport.update({
@@ -79,8 +103,12 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/software-demo': typeof SoftwareDemoRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/inventory': typeof AdminInventoryRoute
+  '/admin/invoices': typeof AdminInvoicesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/quotations': typeof AdminQuotationsRoute
   '/admin/sales': typeof AdminSalesRoute
 }
 export interface FileRoutesByTo {
@@ -91,8 +119,12 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/software-demo': typeof SoftwareDemoRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/inventory': typeof AdminInventoryRoute
+  '/admin/invoices': typeof AdminInvoicesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/quotations': typeof AdminQuotationsRoute
   '/admin/sales': typeof AdminSalesRoute
 }
 export interface FileRoutesById {
@@ -104,8 +136,12 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/software-demo': typeof SoftwareDemoRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/inventory': typeof AdminInventoryRoute
+  '/admin/invoices': typeof AdminInvoicesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/quotations': typeof AdminQuotationsRoute
   '/admin/sales': typeof AdminSalesRoute
 }
 export interface FileRouteTypes {
@@ -118,8 +154,12 @@ export interface FileRouteTypes {
     | '/services'
     | '/software-demo'
     | '/solutions'
+    | '/admin/customers'
     | '/admin/dashboard'
+    | '/admin/inventory'
+    | '/admin/invoices'
     | '/admin/login'
+    | '/admin/quotations'
     | '/admin/sales'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -130,8 +170,12 @@ export interface FileRouteTypes {
     | '/services'
     | '/software-demo'
     | '/solutions'
+    | '/admin/customers'
     | '/admin/dashboard'
+    | '/admin/inventory'
+    | '/admin/invoices'
     | '/admin/login'
+    | '/admin/quotations'
     | '/admin/sales'
   id:
     | '__root__'
@@ -142,8 +186,12 @@ export interface FileRouteTypes {
     | '/services'
     | '/software-demo'
     | '/solutions'
+    | '/admin/customers'
     | '/admin/dashboard'
+    | '/admin/inventory'
+    | '/admin/invoices'
     | '/admin/login'
+    | '/admin/quotations'
     | '/admin/sales'
   fileRoutesById: FileRoutesById
 }
@@ -155,8 +203,12 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SoftwareDemoRoute: typeof SoftwareDemoRoute
   SolutionsRoute: typeof SolutionsRoute
+  AdminCustomersRoute: typeof AdminCustomersRoute
   AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminInventoryRoute: typeof AdminInventoryRoute
+  AdminInvoicesRoute: typeof AdminInvoicesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminQuotationsRoute: typeof AdminQuotationsRoute
   AdminSalesRoute: typeof AdminSalesRoute
 }
 
@@ -211,6 +263,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/customers': {
+      id: '/admin/customers'
+      path: '/admin/customers'
+      fullPath: '/admin/customers'
+      preLoaderRoute: typeof AdminCustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/dashboard': {
       id: '/admin/dashboard'
       path: '/admin/dashboard'
@@ -218,11 +277,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/inventory': {
+      id: '/admin/inventory'
+      path: '/admin/inventory'
+      fullPath: '/admin/inventory'
+      preLoaderRoute: typeof AdminInventoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/invoices': {
+      id: '/admin/invoices'
+      path: '/admin/invoices'
+      fullPath: '/admin/invoices'
+      preLoaderRoute: typeof AdminInvoicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
       fullPath: '/admin/login'
       preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/quotations': {
+      id: '/admin/quotations'
+      path: '/admin/quotations'
+      fullPath: '/admin/quotations'
+      preLoaderRoute: typeof AdminQuotationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/sales': {
@@ -243,8 +323,12 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SoftwareDemoRoute: SoftwareDemoRoute,
   SolutionsRoute: SolutionsRoute,
+  AdminCustomersRoute: AdminCustomersRoute,
   AdminDashboardRoute: AdminDashboardRoute,
+  AdminInventoryRoute: AdminInventoryRoute,
+  AdminInvoicesRoute: AdminInvoicesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminQuotationsRoute: AdminQuotationsRoute,
   AdminSalesRoute: AdminSalesRoute,
 }
 export const routeTree = rootRouteImport
