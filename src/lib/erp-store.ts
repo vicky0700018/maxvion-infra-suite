@@ -1,5 +1,5 @@
 // Tiny global store (no external state library). React state only, resets on refresh.
-import { useSyncExternalStore, useCallback } from "react";
+import { useSyncExternalStore } from "react";
 import * as D from "./erp-data";
 
 export interface Toast {
@@ -66,22 +66,6 @@ export function useStore<T>(selector: (s: State) => T): T {
     () => selector(state),
     () => selector(state),
   );
-}
-
-export function useActions() {
-  return useCallback(
-    {
-      login(email: string, password: string) {
-        const ok = email.trim().toLowerCase() === "admin@maxvioninfra.com" && password === "admin123";
-        if (ok) setState({ authed: true });
-        return ok;
-      },
-      logout() {
-        setState({ authed: false });
-      },
-    },
-    [],
-  ) as unknown as { login: (e: string, p: string) => boolean; logout: () => void };
 }
 
 export const auth = {
